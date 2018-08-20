@@ -1,0 +1,10 @@
+{
+  "description": "Wait for x seconds",
+  "input_method": "stdin",
+  "parameters": {
+    "seconds": {
+      "description": "seconds to wait ",
+      "type": "Integer"
+    }
+  }
+}
