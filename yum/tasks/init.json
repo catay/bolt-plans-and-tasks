@@ -1,0 +1,10 @@
+{
+  "description": "Allows you to execute yum actions",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "available yum actions ",
+      "type": "Enum[update, has-updates]"
+    }
+  }
+}
