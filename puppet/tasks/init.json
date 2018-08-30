@@ -1,0 +1,10 @@
+{
+  "description": "Allows you to execute puppet agent actions",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "available puppet agent actions ",
+      "type": "Enum[enable, disable, status]"
+    }
+  }
+}
