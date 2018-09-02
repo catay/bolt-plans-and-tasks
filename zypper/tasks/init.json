@@ -1,0 +1,10 @@
+{
+  "description": "Allows you to execute zypper actions",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "available zypper actions ",
+      "type": "Enum[update, has-updates]"
+    }
+  }
+}
