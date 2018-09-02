@@ -48,6 +48,9 @@ plan tools::update(
      }
   }
 
+  # disable the puppet agent before updating packages
+  run_task('puppet', $nodes_to_update, action => 'disable', '_catch_errors' => true)
+
   # invoke a yum update on the nodes pending updates
   #$r_yum_update = run_task('testcode::echo', $nodes_to_update, msg => 'invoke yum update', '_catch_errors' => true)
   $r_yum_update = run_task('yum', $nodes_to_update, action => 'update', '_catch_errors' => true)
@@ -110,6 +113,9 @@ plan tools::update(
       get_targets($nodes_not_rebooted).each |$t| {
         if $t.vars['uptime_seconds'] > $t.facts['uptime_seconds'] {
           $t.set_var('is_rebooted', "yes")
+
+          # enable the puppet agent after the reboot
+          run_task('puppet', $t, action => 'enable', '_catch_errors' => true)
         }
       }
 
