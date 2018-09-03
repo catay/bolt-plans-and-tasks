@@ -1,0 +1,14 @@
+{
+  "description": "Allows to execute OS update actions",
+  "input_method": "stdin",
+  "parameters": {
+    "action": {
+      "description": "available OS update actions ",
+      "type": "Enum[update, has-updates]"
+    }
+  },
+  "implementations": [
+    {"name": "yum.rb", "requirements": ["yum"]},
+    {"name": "zypper.rb", "requirements": ["zypper"]}
+  ]
+}
